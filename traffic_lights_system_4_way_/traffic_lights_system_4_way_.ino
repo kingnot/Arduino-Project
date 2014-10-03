@@ -15,7 +15,7 @@
  
 void setup() 
 {  //start of setup
-  pinMode(buzzer,OUTPUT);//Set Pin Mode as output
+  pinMode(buzzer,OUTPUT);//Set buzzer Pin Mode as output
   pinMode(NSgreenLed,OUTPUT);//Set North/South green ledPin as output 
   pinMode(NSyellowLed,OUTPUT);//Set North/South yellow ledPin as output 
   pinMode(NSredLed,OUTPUT);//Set North/South red ledPin as output  
@@ -30,13 +30,16 @@ void loop()
 {
    digitalWrite(NSredLed,HIGH); //Set N/S red LED to high
    digitalWrite(WEredLed,HIGH);  //Set W/E red LED to high
-   delay(redWait); //Delay 2 second 
+   delay(redWait); //red led delay 
    digitalWrite(WEredLed,LOW); //Set W/E red LED to low 
    
    /*West-East directions start to go from this point*/
    /*Start from the left turn traffic*/
    digitalWrite(WEleftLed,HIGH); //Set W/E left LED to high  
-   delay(leftWait); //Wait 3 second
+   delay(leftWait); //left led delay
+   digitalWrite(buzzer,HIGH); //Start making a sound to warn the light switch
+   delay(10); 
+   digitalWrite(buzzer,LOW); //Stop making a sound
    digitalWrite(WEyellowLed,HIGH); //Set W/E yellow LED to high to warn the end of left turn priority 
    delay(yellowWait);
    digitalWrite(WEleftLed,LOW); //Set W/E left LED to low 
@@ -47,25 +50,28 @@ void loop()
    digitalWrite(WEgreenLed,LOW); //Set W/E green LED to low 
    
    digitalWrite(buzzer,HIGH); //Start making a sound to warn the light swich
-   delay(10); //Wait 10ms 
+   delay(10);  
    digitalWrite(buzzer,LOW); //Stop making a sound
-   delay(400); //Wait 400ms
+   delay(400); 
    digitalWrite(buzzer,HIGH); //Start making a sound
-   delay(10); //Wait 10ms 
+   delay(10); 
    digitalWrite(buzzer,LOW); //Stop making a sound
    
    digitalWrite(WEyellowLed,HIGH); //Set W/E yellow LED to high  
-   delay(yellowWait); //Delay 2 second 
+   delay(yellowWait); 
    digitalWrite(WEyellowLed,LOW); //Set W/E yellow LED to low 
       
    digitalWrite(WEredLed,HIGH); //Set W/E red LED to high  
-   delay(redWait); //Delay 2 second 
+   delay(redWait); 
    digitalWrite(NSredLed,LOW); //Set N/S red LED to low   
    
    /*North-South directions start to go from this point*/
    /*Start from the left turn traffic*/   
    digitalWrite(NSleftLed,HIGH); //Set N/S left LED to high  
-   delay(leftWait); //Wait 3 second 
+   delay(leftWait); 
+   digitalWrite(buzzer,HIGH); //Start making a sound to warn the light switch
+   delay(10); 
+   digitalWrite(buzzer,LOW); //Stop making a sound
    digitalWrite(NSyellowLed,HIGH); //Set N/S yellow LED to high to warn the end of left turn priority
    delay(yellowWait);
    digitalWrite(NSleftLed,LOW); //Set N/S left LED to low
@@ -76,15 +82,15 @@ void loop()
    digitalWrite(NSgreenLed,LOW); //Set N/S green LED to low 
    
    digitalWrite(buzzer,HIGH); //Start making a sound to warn the light switch
-   delay(10); //Wait 10ms 
+   delay(10); 
    digitalWrite(buzzer,LOW); //Stop making a sound
-   delay(400); //Wait 400ms
+   delay(400); 
    digitalWrite(buzzer,HIGH); //Start making a sound
-   delay(10); //Wait 10ms 
+   delay(10); 
    digitalWrite(buzzer,LOW); //Stop making a sound
    
    digitalWrite(NSyellowLed,HIGH); //Set N/S yellow LED to high  
-   delay(yellowWait); //Delay 2 second 
+   delay(yellowWait); //yellow led dealy 
    digitalWrite(NSyellowLed,LOW); //Set N/S yellow LED to low 
    
 }//end of loop
